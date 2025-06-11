@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <h1>Hola Mundo!</h1> 
+      <h1>Lista de tareas</h1> 
     </>
   )
 }
