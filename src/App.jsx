@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import FormularioTarea from "./components/FormularioTarea";
+
 function App() {
   return (
     <>
