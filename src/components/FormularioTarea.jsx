@@ -6,9 +6,12 @@ import { useState } from "react";
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
   const [tareas, setTareas] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("aqui deberia guardar la tarea");
+    setTareas([...tareas, tarea]);
+    setTarea("")
   };
 
   return (
