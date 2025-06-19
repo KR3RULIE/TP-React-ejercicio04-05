@@ -11,7 +11,7 @@ const FormularioTarea = () => {
     e.preventDefault();
     console.log("aqui deberia guardar la tarea");
     setTareas([...tareas, tarea]);
-    setTarea("")
+    setTarea("");
   };
 
   return (
@@ -29,7 +29,7 @@ const FormularioTarea = () => {
           </Button>
         </Form.Group>
       </Form>
-      <ListaTarea />
+      <ListaTarea tareas={tareas} />
     </section>
   );
 };

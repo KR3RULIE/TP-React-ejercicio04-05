@@ -1,9 +1,11 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import ItemsTarea from "./ItemsTarea";
-const ListaTarea = () => {
+const ListaTarea = ({ tareas }) => {
   return (
     <ListGroup>
-      <ItemsTarea />
+      {tareas.map((item, indice) => (
+        <ItemsTarea key={indice} nombreTarea={item}/>
+      ))}
     </ListGroup>
   );
 };
