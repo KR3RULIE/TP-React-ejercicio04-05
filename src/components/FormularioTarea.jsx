@@ -27,8 +27,8 @@ const FormularioTarea = () => {
     reset();
   };
 
-  const borrarTarea = (nombreTarea) => {
-    const tareasFiltradas = tareas.filter((item) => item !== nombreTarea);
+  const borrarTarea = (indiceABorrar) => {
+    const tareasFiltradas = tareas.filter((item, indice) => indice !== indiceABorrar);
     setTareas(tareasFiltradas);
   };
 
