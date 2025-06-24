@@ -1,12 +1,40 @@
-# React + Vite
+# Lista de Tareas - App en React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto básico de una aplicación web desarrollada con React que permite gestionar una lista de tareas.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- HTML
+- CSS (opcional)
+- JavaScript
+- React
 
-## Expanding the ESLint configuration
+## Cómo usar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clona este repositorio:
+
+```bash
+git clone https://github.com/KR3RULIE/TP-React-ejercicio04
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Inicia el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+## 👨‍💻 Autor
+
+**Marcos Joel Tebis**  
+Proyecto personal de práctica con ejercicios básicos en JavaScript.  
+¡Gracias por visitar este repositorio y feliz código!
+
+---
+
+¡Sigue practicando y mejorando tus habilidades en JavaScript! 💪
