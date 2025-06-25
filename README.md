@@ -32,9 +32,9 @@ npm run dev
 ## 👨‍💻 Autor
 
 **Marcos Joel Tebis**  
-Proyecto personal de práctica con ejercicios básicos en JavaScript.  
+Proyecto personal de práctica con ejercicios básicos en JavaScript, CSS, React, React Hook Form y React Bootstrap.  
 ¡Gracias por visitar este repositorio y feliz código!
 
 ---
 
-¡Sigue practicando y mejorando tus habilidades en JavaScript! 💪
+¡Sigue practicando y mejorando tus habilidades en Desarrollo Web! 💪
