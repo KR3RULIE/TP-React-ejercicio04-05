@@ -3,10 +3,11 @@ import Form from "react-bootstrap/Form";
 import ListaTarea from "./ListaTarea";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { leerTareas } from "../helpers/queries";
 
 const FormularioTarea = () => {
-  const tareasLocalstorage = JSON.parse(localStorage.getItem("listaTareas")) || [];
-  const [tareas, setTareas] = useState(tareasLocalstorage);
+  const [listaTareas, setListaTareas] = useState([]);
+
   const {
     register,
     handleSubmit,
@@ -15,20 +16,29 @@ const FormularioTarea = () => {
   } = useForm();
 
   useEffect(() => {
-    console.log("desde use efect");
-    localStorage.setItem("listaTareas", JSON.stringify(tareas));
-  }, [tareas]);
+    obtenerTareas();
+  }, []);
+
+  const obtenerTareas = async () => {
+    const respuesta = await leerTareas();
+    if (respuesta.status === 200) {
+      const datos = await respuesta.json();
+      setListaTareas(datos);
+    } else {
+      console.info("Ocurrio un error al buscar las tareas");
+    }
+  };
 
   const agregarTareas = (data) => {
-    console.log("aqui deberia guardar la tarea");
-    console.log(data.inputTarea);
-    setTareas([...tareas, data.inputTarea]);
+    console.log("Nueva tarea:", data.inputTarea);
     reset();
   };
 
-  const borrarTarea = (indiceABorrar) => {
-    const tareasFiltradas = tareas.filter((item, indice) => indice !== indiceABorrar);
-    setTareas(tareasFiltradas);
+  const borrarTarea = (idABorrar) => {
+    const tareasFiltradas = listaTareas.filter(
+      (item) => item._id !== idABorrar
+    );
+    setListaTareas(tareasFiltradas);
   };
 
   return (
@@ -38,7 +48,6 @@ const FormularioTarea = () => {
           <Form.Control
             type="text"
             placeholder="ingresa una tarea"
-            onChange={(e) => setTarea(e.target.value)}
             {...register("inputTarea", {
               required: "La tarea es un dato obligatorio",
               minLength: {
@@ -64,7 +73,12 @@ const FormularioTarea = () => {
           {errors.inputTarea?.message}
         </Form.Text>
       </Form>
-      <ListaTarea tareas={tareas} borrarTarea={borrarTarea} />
+
+      <Button variant="success" className="mb-3" onClick={obtenerTareas}>
+        Mostrar tareas
+      </Button>
+
+      <ListaTarea listaTareas={listaTareas} borrarTarea={borrarTarea} />
     </section>
   );
 };
