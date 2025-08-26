@@ -42,7 +42,7 @@ export const editarTareas = async (tareaEditada, id) => {
     const respuesta = await fetch(urltareas + `/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "aplication/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(tareaEditada),
     });
