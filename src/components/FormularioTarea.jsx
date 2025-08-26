@@ -82,7 +82,17 @@ const FormularioTarea = () => {
         </Form.Text>
       </Form>
 
-      <Button variant="success" className="mb-3" onClick={obtenerTareas}>
+      <div className="d-flex">
+        <Form.Text className="mb-2 text-info">
+          (El botón se desactivará si ya están todas las tareas mostradas.)
+        </Form.Text>
+      </div>
+      <Button
+        className="mb-3"
+        variant="success"
+        onClick={obtenerTareas}
+        disabled={listaTareas.length > 0}
+      >
         Mostrar tareas
       </Button>
 

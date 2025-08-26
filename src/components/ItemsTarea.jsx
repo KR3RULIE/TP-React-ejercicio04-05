@@ -74,7 +74,7 @@ const ItemsTarea = ({ tarea, setListaTareas }) => {
                 if (respuesta.status === 200) {
                   Swal.fire({
                     title: "Borrado!",
-                    text: `La tarea ${tarea.tarea} fue borrada exitosamente`,
+                    text: `La tarea "${tarea.tarea}" fue borrada exitosamente`,
                     icon: "success",
                   });
                   const respuestaTareas = await leerTareas();
