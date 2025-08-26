@@ -1,7 +1,7 @@
 import { Button, ListGroup } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { borrarTareasPorID } from "../helpers/queries";
-const ItemsTarea = ({ tarea }) => {
+import { borrarTareasPorID, leerTareas } from "../helpers/queries";
+const ItemsTarea = ({ tarea, setListaTareas }) => {
   return (
     <ListGroup.Item className="d-flex justify-content-between">
       {tarea.tarea}
@@ -26,7 +26,9 @@ const ItemsTarea = ({ tarea }) => {
                   text: `La tarea ${tarea.tarea} fue borrada exitosamente`,
                   icon: "success",
                 });
-                
+                const respuestaTareas = await leerTareas();
+                const tareasActualizadas = await respuestaTareas.json();
+                setListaTareas(tareasActualizadas);
               } else {
                 Swal.fire({
                   title: "Ocurrio un error!",

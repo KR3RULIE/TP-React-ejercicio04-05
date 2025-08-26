@@ -38,6 +38,7 @@ const FormularioTarea = () => {
         text: `La tarea "${data.tarea}" fue creada exitosamente`,
         icon: "success",
       });
+      obtenerTareas();
     } else {
       Swal.fire({
         icon: "error",
@@ -46,13 +47,6 @@ const FormularioTarea = () => {
       });
     }
     reset();
-  };
-
-  const borrarTarea = (idABorrar) => {
-    const tareasFiltradas = listaTareas.filter(
-      (item) => item._id !== idABorrar
-    );
-    setListaTareas(tareasFiltradas);
   };
 
   return (
@@ -92,7 +86,7 @@ const FormularioTarea = () => {
         Mostrar tareas
       </Button>
 
-      <ListaTarea listaTareas={listaTareas}/>
+      <ListaTarea listaTareas={listaTareas} setListaTareas={setListaTareas} />
     </section>
   );
 };
