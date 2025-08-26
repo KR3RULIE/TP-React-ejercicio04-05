@@ -26,7 +26,7 @@ export const crearTareas = async (tareaNueva) => {
     const respuesta = await fetch(urltareas, {
       method: "POST",
       headers: {
-        "Content-Type": "aplication/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(tareaNueva),
     });

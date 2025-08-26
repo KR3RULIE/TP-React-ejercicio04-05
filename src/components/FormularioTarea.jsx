@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import ListaTarea from "./ListaTarea";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { leerTareas } from "../helpers/queries";
+import { crearTareas, leerTareas } from "../helpers/queries";
+import Swal from "sweetalert2";
 
 const FormularioTarea = () => {
   const [listaTareas, setListaTareas] = useState([]);
@@ -29,8 +30,21 @@ const FormularioTarea = () => {
     }
   };
 
-  const agregarTareas = (data) => {
-    console.log("Nueva tarea:", data.inputTarea);
+  const agregarTareas = async (data) => {
+    const respuesta = await crearTareas(data);
+    if (respuesta.status === 201) {
+      Swal.fire({
+        title: "Tarea creada!",
+        text: `La tarea "${data.tarea}" fue creada exitosamente`,
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `Hubo un problema al intentar crear la tarea "${data.tarea}"`,
+      });
+    }
     reset();
   };
 
@@ -48,7 +62,7 @@ const FormularioTarea = () => {
           <Form.Control
             type="text"
             placeholder="ingresa una tarea"
-            {...register("inputTarea", {
+            {...register("tarea", {
               required: "La tarea es un dato obligatorio",
               minLength: {
                 value: 3,
