@@ -92,7 +92,7 @@ const FormularioTarea = () => {
         Mostrar tareas
       </Button>
 
-      <ListaTarea listaTareas={listaTareas} borrarTarea={borrarTarea} />
+      <ListaTarea listaTareas={listaTareas}/>
     </section>
   );
 };
